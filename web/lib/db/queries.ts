@@ -1,5 +1,11 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 
+import {
+  applyChatDescriptionToHabitat,
+  buildHabitatDescriptionForChat,
+  getParsedMaterialSummary,
+} from "@/lib/pokopia/parse-conditions";
+
 import type {
   EntityKind,
   HabitatRow,
@@ -263,10 +269,10 @@ export async function getHabitatsByPokemon(
     };
     const raw = oneOrNull(r.habitats);
     if (!raw) continue;
-    const h: HabitatWithLocation = {
+    const h = applyChatDescriptionToHabitat({
       ...raw,
       locations: oneOrNull(raw.locations),
-    };
+    });
     out.push({
       habitat: h,
       spawn: {
@@ -353,6 +359,12 @@ export type HabitatDetail = {
     sort_order: number;
     material: MaterialRow | null;
   }>;
+  /** 파싱된 재료(한글명·수량만; 영문 item_en은 노출하지 않음) */
+  game8_material_lines: Array<{ item_ko: string; quantity: string }>;
+  /** `초록 풀 × 4, 고지대 × 1` 형태 한 줄 */
+  requirements_line_ko: string;
+  /** 채팅에 그대로 넣기 좋은 한글 블록 (`필요한 재료:\n- …`) */
+  formatted_materials_ko: string;
 };
 
 /** 서식지 상세: 재료·지역·이벤트 (툴 get_habitat_detail) */
@@ -438,7 +450,22 @@ export async function getHabitatDetail(
       };
     }) ?? [];
 
-  return { habitat, requirements };
+  const parsed = getParsedMaterialSummary(habitat.description);
+  const habitatForChat: HabitatWithLocation = {
+    ...habitat,
+    description: buildHabitatDescriptionForChat(habitat.description, parsed),
+  };
+
+  return {
+    habitat: habitatForChat,
+    requirements,
+    game8_material_lines: parsed.materials.map((m) => ({
+      item_ko: m.item_ko,
+      quantity: m.quantity,
+    })),
+    requirements_line_ko: parsed.requirements_line_ko,
+    formatted_materials_ko: parsed.formatted_materials_ko,
+  };
 }
 
 /** 지역명 → 서식지 (툴 get_habitats_by_location) */
@@ -479,10 +506,12 @@ export async function getHabitatsByLocation(
     .order("habitat_no", { ascending: true });
 
   if (error) throw error;
-  return ((data ?? []) as unknown as HabitatWithLocation[]).map((h) => ({
-    ...h,
-    locations: oneOrNull(h.locations),
-  }));
+  return ((data ?? []) as unknown as HabitatWithLocation[]).map((h) =>
+    applyChatDescriptionToHabitat({
+      ...h,
+      locations: oneOrNull(h.locations),
+    }),
+  );
 }
 
 export type RelatedHabitatFilters = {
@@ -600,10 +629,10 @@ export async function getRelatedHabitats(
     };
     const raw = oneOrNull(r.habitats);
     if (!raw) continue;
-    const h: HabitatWithLocation = {
+    const h = applyChatDescriptionToHabitat({
       ...raw,
       locations: oneOrNull(raw.locations),
-    };
+    });
     out.push({
       habitat: h,
       spawn: {
