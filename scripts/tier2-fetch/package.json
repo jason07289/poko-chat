@@ -1,0 +1,23 @@
+{
+  "name": "tier2-fetch",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "fetch:game8": "node fetch-game8.mjs",
+    "fetch:gamewith": "node fetch-gamewith.mjs",
+    "fetch:all": "node fetch-game8.mjs && node fetch-gamewith.mjs",
+    "enrich:ko": "node enrich-game8-ko.mjs",
+    "import:db": "node import-enriched.mjs",
+    "build:sql": "node build-sql-seed.mjs"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.101.0",
+    "cheerio": "^1.0.0-rc.12",
+    "dotenv": "^17.3.1"
+  }
+}
