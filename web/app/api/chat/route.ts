@@ -41,12 +41,12 @@ export async function POST(request: Request) {
   try {
     const openai = getOpenAI();
     const supabase = createSupabaseAnonClient();
-    const { reply, responseId } = await runHabitatChat(
+    const { reply, responseId, traces } = await runHabitatChat(
       openai,
       supabase,
       messages,
     );
-    return NextResponse.json({ reply, responseId });
+    return NextResponse.json({ reply, responseId, traces });
   } catch (e) {
     const message = e instanceof Error ? e.message : "chat failed";
     return NextResponse.json({ error: message }, { status: 502 });

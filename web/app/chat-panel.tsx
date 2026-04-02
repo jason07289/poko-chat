@@ -1,8 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import { renderTraceCard, type ToolTrace } from "./components/chat-trace-cards";
 
-type Msg = { role: "user" | "assistant"; content: string };
+type Msg = {
+  role: "user" | "assistant";
+  content: string;
+  traces?: ToolTrace[];
+};
 
 export function ChatPanel() {
   const [messages, setMessages] = useState<Msg[]>([]);
@@ -24,14 +29,22 @@ export function ChatPanel() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ messages: next }),
       });
-      const data = (await res.json()) as { reply?: string; error?: string };
+      const data = (await res.json()) as {
+        reply?: string;
+        error?: string;
+        traces?: ToolTrace[];
+      };
       if (!res.ok) {
         setError(data.error ?? "요청 실패");
         return;
       }
       setMessages([
         ...next,
-        { role: "assistant", content: data.reply ?? "" },
+        {
+          role: "assistant",
+          content: data.reply ?? "",
+          traces: Array.isArray(data.traces) ? data.traces : [],
+        },
       ]);
     } catch {
       setError("네트워크 오류");
@@ -62,6 +75,11 @@ export function ChatPanel() {
                 {m.role === "user" ? "나" : "어시스턴트"}
               </p>
               <p className="whitespace-pre-wrap leading-relaxed">{m.content}</p>
+              {m.role === "assistant" && (m.traces?.length ?? 0) > 0 ? (
+                <div>
+                  {m.traces?.map((trace, idx) => renderTraceCard(trace, idx))}
+                </div>
+              ) : null}
             </div>
           ))
         )}

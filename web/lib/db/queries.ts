@@ -522,6 +522,21 @@ export type RelatedHabitatFilters = {
   locationName?: string;
 };
 
+function parseMaterialQuery(raw: string): {
+  keyword: string;
+  quantity: number | null;
+} {
+  const q = raw.trim();
+  const quantityMatch = q.match(/(\d+)/);
+  const quantity = quantityMatch ? Number(quantityMatch[1]) : null;
+  const keyword = q
+    .replace(/(\d+)\s*(개|x|X)?/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLowerCase();
+  return { keyword, quantity };
+}
+
 /** 조건 검색 (툴 get_related_habitats, FR-03) — 부분 일치 */
 export async function getRelatedHabitats(
   supabase: SupabaseClient,
@@ -596,19 +611,60 @@ export async function getRelatedHabitats(
   }
 
   if (filters.materialName?.trim()) {
+    const parsedMaterialQuery = parseMaterialQuery(filters.materialName);
+
+    // 1) 정규 재료 테이블 기준 필터 (기존)
     const { data: mats } = await supabase
       .from("materials")
       .select("id")
-      .ilike("name_ko", `%${filters.materialName.trim()}%`);
+      .or(
+        `name_ko.ilike.%${parsedMaterialQuery.keyword}%,name_en.ilike.%${parsedMaterialQuery.keyword}%`,
+      );
     const ids = new Set((mats ?? []).map((m) => m.id));
-    if (ids.size === 0) return [];
 
-    const { data: reqHids } = await supabase
-      .from("habitat_requirements")
-      .select("habitat_id")
-      .in("material_id", [...ids]);
+    const allowedFromReq = new Set<string>();
+    if (ids.size > 0) {
+      const { data: reqHids } = await supabase
+        .from("habitat_requirements")
+        .select("habitat_id")
+        .in("material_id", [...ids]);
+      for (const r of reqHids ?? []) {
+        if (r.habitat_id) allowedFromReq.add(r.habitat_id);
+      }
+    }
 
-    const allowed = new Set((reqHids ?? []).map((r) => r.habitat_id));
+    // 2) Game8 description 파싱 기준 fallback 필터
+    // habitat_requirements 가 비어 있는 시드에서도 재료 검색이 동작하도록 한다.
+    const allowedFromDescription = new Set<string>();
+    for (const row of rows) {
+      const r = row as unknown as {
+        habitats: HabitatWithLocation | HabitatWithLocation[] | null;
+      };
+      const h = oneOrNull(r.habitats);
+      if (!h) continue;
+      const parsed = getParsedMaterialSummary(h.description);
+      const hit = parsed.materials.some((m) => {
+        const en = m.item_en.toLowerCase();
+        const ko = m.item_ko.toLowerCase();
+        const keywordHit = parsedMaterialQuery.keyword
+          ? en.includes(parsedMaterialQuery.keyword) ||
+            ko.includes(parsedMaterialQuery.keyword)
+          : true;
+        const quantityHit =
+          parsedMaterialQuery.quantity == null ||
+          Number(m.quantity) === parsedMaterialQuery.quantity;
+        return keywordHit && quantityHit;
+      });
+      if (hit) {
+        allowedFromDescription.add(h.id);
+      }
+    }
+
+    const allowed = new Set<string>([
+      ...allowedFromReq,
+      ...allowedFromDescription,
+    ]);
+    if (allowed.size === 0) return [];
     rows = rows.filter((row) => {
       const r = row as unknown as {
         habitats: HabitatWithLocation | HabitatWithLocation[] | null;

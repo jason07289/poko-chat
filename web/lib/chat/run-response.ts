@@ -12,6 +12,11 @@ import { executeHabitatTool } from "./dispatch";
 import { HABITAT_FUNCTION_TOOLS } from "./tool-definitions";
 
 export type ChatTurn = { role: "user" | "assistant"; content: string };
+export type ToolTrace = {
+  toolName: string;
+  args: string;
+  result: unknown;
+};
 
 function isFunctionCall(item: unknown): item is ResponseFunctionToolCall {
   return (
@@ -41,7 +46,7 @@ export async function runHabitatChat(
   supabase: SupabaseClient,
   messages: ChatTurn[],
   model = process.env.OPENAI_CHAT_MODEL?.trim() || DEFAULT_CHAT_MODEL,
-): Promise<{ reply: string; responseId: string }> {
+): Promise<{ reply: string; responseId: string; traces: ToolTrace[] }> {
   const input: ResponseInput = messages.map(
     (m): ResponseInputItem => ({
       role: m.role,
@@ -58,6 +63,7 @@ export async function runHabitatChat(
     // previous_response_id 로 이어 붙이려면 응답이 서버에 저장되어야 함 (store: false 이면 400 not found)
     store: true,
   });
+  const traces: ToolTrace[] = [];
 
   const maxSteps = 8;
   for (let step = 0; step < maxSteps; step++) {
@@ -68,7 +74,7 @@ export async function runHabitatChat(
     const calls = (response.output ?? []).filter(isFunctionCall);
     if (calls.length === 0) {
       const reply = extractAssistantText(response);
-      return { reply, responseId: response.id };
+      return { reply, responseId: response.id, traces };
     }
 
     const outputs: ResponseInputItem[] = [];
@@ -78,6 +84,11 @@ export async function runHabitatChat(
         call.name,
         call.arguments,
       );
+      traces.push({
+        toolName: call.name,
+        args: call.arguments,
+        result,
+      });
       outputs.push({
         type: "function_call_output",
         call_id: call.call_id,
@@ -100,5 +111,6 @@ export async function runHabitatChat(
       extractAssistantText(response) ||
       "도구 호출이 반복 한도에 도달했습니다. 질문을 나눠 주세요.",
     responseId: response.id,
+    traces,
   };
 }
