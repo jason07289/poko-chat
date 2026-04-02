@@ -87,6 +87,26 @@
 | Phase 1 RLS·조회 모듈·툴 함수 (`search_entity`, `get_*` 6종, `summarizeProvenanceForEntity`) | `web/lib/db/queries.ts` |
 | 실제 Supabase 프로젝트에 마이그레이션·시드 적용 | 대시보드에서 수동 실행 필요 (`supabase/README.md`) |
 | Responses API (`/api/chat`)·홈 채팅 UI | `web/app/api/chat/route.ts`, `web/app/chat-panel.tsx` |
-| 결과 카드·출처 UI 고도화·모호 질의 프롬프트 튜닝 | 부분적 (후속) |
+| 결과 카드·출처 UI 고도화·모호 질의 프롬프트 튜닝 | 부분 완료 (툴 trace 카드 + 출처 메타 + data_notice 반영) |
+
+### 6.1 진행 메모 (2026-04-02)
+
+- 완료
+  - QA 골드셋 고정/확장: `docs/qa-goldset.md`
+  - GS-06/08/09/10 보류 및 재검증 체크리스트 기록
+  - 카드 UI에 tool trace/출처/data_notice 표시
+  - 재료 조건 검색 fallback (Game8 `description` 파싱) 적용
+  - 데이터 확장 설계 문서화: `docs/data-ingestion-extension-plan.md`
+  - tier2 수집 스크립트 확장(초기):
+    - `enrich-game8-ko.mjs`에 time/weather 키 추가
+    - `import-enriched.mjs`, `build-sql-seed.mjs`에 location/time/weather 반영 로직 추가
+    - 커버리지 점검 스크립트 추가: `verify-coverage.mjs`
+    - 지역 매핑 템플릿 생성 스크립트 추가: `build-location-map-template.mjs`
+
+- 보류/다음 작업
+  - `location-map.json` 실제 매핑 데이터 채우기
+  - 재적재 실행: `enrich:ko` → `import:db`(또는 `build:sql`)
+  - 커버리지 확인: `npm run verify:coverage` (`scripts/tier2-fetch`)
+  - QA 재검증: `GS-06-R`~`GS-10-R`
 
 이 표는 구현이 진행될 때마다 갱신하는 것을 권장한다.

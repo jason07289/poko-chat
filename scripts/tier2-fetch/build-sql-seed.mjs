@@ -56,7 +56,7 @@ async function main() {
 
   const lines = [];
   lines.push("-- game8-habitats.enriched.json → 일괄 시드 (기존 포켓몬·서식지·스폰·별칭·출처 비움)");
-  lines.push("-- SQL Editor에서 실행 (postgres 권한). locations는 유지.");
+  lines.push("-- SQL Editor에서 실행 (postgres 권한). locations는 유지하되 누락 지역은 추가.");
   lines.push("");
   lines.push("begin;");
   lines.push("");
@@ -82,7 +82,34 @@ async function main() {
   );
   lines.push("");
 
-  lines.push("insert into public.habitats (habitat_no, name_ko, name_en, is_event, description) values");
+  // locations: 유지 + 누락만 추가
+  const locationRows = [];
+  const locationSeen = new Set();
+  for (const h of normalized) {
+    const ko = h.location_name_ko?.trim() || null;
+    const en = h.location_name_en?.trim() || null;
+    const key = (ko || en || "").toLowerCase();
+    if (!key || locationSeen.has(key)) continue;
+    locationSeen.add(key);
+    locationRows.push({ name_ko: ko || en, name_en: en });
+  }
+  if (locationRows.length > 0) {
+    lines.push("-- locations upsert-like insert");
+    for (const r of locationRows) {
+      lines.push(
+        `insert into public.locations (name_ko, name_en, biome, unlock_rule)
+select ${escSql(r.name_ko)}, ${escSql(r.name_en)}, null, null
+where not exists (
+  select 1 from public.locations where lower(name_ko) = lower(${escSql(r.name_ko)})
+);`,
+      );
+    }
+    lines.push("");
+  }
+
+  lines.push(
+    "insert into public.habitats (habitat_no, name_ko, name_en, location_id, is_event, description) values",
+  );
   lines.push(
     normalized
       .map((h) => {
@@ -90,7 +117,9 @@ async function main() {
         if (h.description_ko) descParts.push(h.description_ko);
         if (h.conditions_en) descParts.push(`[Game8] ${h.conditions_en}`);
         const desc = descParts.length ? descParts.join("\n\n") : null;
-        return `  (${h._habitat_no}, ${escSql(h.name_ko?.trim() || h.name_en)}, ${escSql(h.name_en)}, ${h._is_event}, ${escSql(desc)})`;
+        const locationKo = h.location_name_ko?.trim() || null;
+        const locationEn = h.location_name_en?.trim() || null;
+        return `  (${h._habitat_no}, ${escSql(h.name_ko?.trim() || h.name_en)}, ${escSql(h.name_en)}, (select id from public.locations where lower(name_ko) = lower(${escSql(locationKo || locationEn || "")}) limit 1), ${h._is_event}, ${escSql(desc)})`;
       })
       .join(",\n") + ";",
   );
@@ -105,12 +134,12 @@ async function main() {
       if (spawnSeen.has(key)) continue;
       spawnSeen.add(key);
       spawnParts.push(
-        `((select id from public.habitats where habitat_no = ${no}), (select id from public.pokemon where name_en = ${escSql(en)}), null, null)`,
+        `((select id from public.habitats where habitat_no = ${no}), (select id from public.pokemon where name_en = ${escSql(en)}), ${escSql(h.time_condition_key && h.time_condition_key !== "unknown" ? h.time_condition_key : null)}, ${escSql(h.weather_condition_key && h.weather_condition_key !== "unknown" ? h.weather_condition_key : null)}, null)`,
       );
     }
   }
   lines.push(
-    "insert into public.habitat_spawn_rules (habitat_id, pokemon_id, time_condition, weather_condition) values",
+    "insert into public.habitat_spawn_rules (habitat_id, pokemon_id, time_condition, weather_condition, biome_condition) values",
   );
   lines.push(spawnParts.join(",\n") + ";");
   lines.push("");

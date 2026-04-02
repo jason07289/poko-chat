@@ -133,6 +133,61 @@ function parseOpggDescriptionKo(html) {
 
 const koNameCache = new Map();
 
+function normalizeKey(s) {
+  return String(s ?? "")
+    .trim()
+    .toLowerCase();
+}
+
+function loadLocationMap(mapPath) {
+  if (!fs.existsSync(mapPath)) return { byHabitatNo: new Map(), byNameEn: new Map() };
+  const raw = JSON.parse(fs.readFileSync(mapPath, "utf8"));
+  const byHabitatNo = new Map();
+  const byNameEn = new Map();
+  for (const r of raw?.records ?? []) {
+    const val = {
+      location_name_ko: r.location_name_ko ?? null,
+      location_name_en: r.location_name_en ?? null,
+    };
+    if (typeof r.habitat_no === "number") {
+      byHabitatNo.set(r.habitat_no, val);
+    }
+    if (r.name_en) {
+      byNameEn.set(normalizeKey(r.name_en), val);
+    }
+  }
+  return { byHabitatNo, byNameEn };
+}
+
+/**
+ * conditions_en에서 시간/날씨 키를 추출한다.
+ * 현재 Game8 조건 문자열 패턴을 기준으로 최소 키셋만 사용한다.
+ */
+function normalizeSpawnConditionKeys(conditionsEn) {
+  const s = (conditionsEn ?? "").toLowerCase();
+
+  let time_condition_key = "unknown";
+  if (/\bnight\b/.test(s)) time_condition_key = "night";
+  else if (/\bday\b/.test(s)) time_condition_key = "day";
+  else if (/\b(all day|any time|always)\b/.test(s)) time_condition_key = "all";
+
+  let weather_condition_key = "unknown";
+  if (/\b(rain|rainy)\b/.test(s)) weather_condition_key = "rain";
+  else if (/\b(sun|sunny)\b/.test(s)) weather_condition_key = "sun";
+  else if (/\b(cloud|cloudy)\b/.test(s)) weather_condition_key = "cloudy";
+  else if (/\b(wind|windy)\b/.test(s)) weather_condition_key = "windy";
+  else if (/\b(snow|snowy)\b/.test(s)) weather_condition_key = "snow";
+  else if (/\b(any weather|all weather|always)\b/.test(s))
+    weather_condition_key = "all";
+
+  return {
+    time_condition_raw: conditionsEn || null,
+    weather_condition_raw: conditionsEn || null,
+    time_condition_key,
+    weather_condition_key,
+  };
+}
+
 async function fetchPokemonKo(en) {
   if (koNameCache.has(en)) return koNameCache.get(en);
   const slug = toPokemonSlug(en);
@@ -160,6 +215,9 @@ async function main() {
   const outFile =
     process.argv[3] ||
     path.join(import.meta.dirname, "out", "game8-habitats.enriched.json");
+  const locationMapFile =
+    process.argv[4] ||
+    path.join(import.meta.dirname, "location-map.json");
 
   const raw = JSON.parse(fs.readFileSync(inFile, "utf8"));
   console.log("Fetching OP.GG (KO habitats)…");
@@ -168,6 +226,10 @@ async function main() {
   const descriptionKoByNo = parseOpggDescriptionKo(opggHtml);
   console.log(
     `OP.GG: ${habitatKoByNo.size} names, ${descriptionKoByNo.size} descriptions (KO)`,
+  );
+  const locationMap = loadLocationMap(locationMapFile);
+  console.log(
+    `Location map: habitat_no ${locationMap.byHabitatNo.size}, name_en ${locationMap.byNameEn.size}`,
   );
 
   const uniquePokemon = new Set();
@@ -194,6 +256,11 @@ async function main() {
         ? descriptionKoByNo.get(num)
         : null;
     const pokemon_ko = h.pokemon_en.map((en) => koNameCache.get(en) ?? null);
+    const normalized = normalizeSpawnConditionKeys(h.conditions_en);
+    const mappedLocation =
+      (h.habitat_no != null && locationMap.byHabitatNo.get(h.habitat_no)) ||
+      locationMap.byNameEn.get(normalizeKey(h.name_en)) ||
+      null;
     return {
       ...h,
       name_ko,
@@ -202,6 +269,10 @@ async function main() {
       description_ko_source: description_ko ? "OP.GG" : null,
       pokemon_ko,
       pokemon_ko_source: "PokeAPI",
+      // T2/T3: 지역명은 location-map.json 기반 보강 (없으면 null)
+      location_name_ko: mappedLocation?.location_name_ko ?? null,
+      location_name_en: mappedLocation?.location_name_en ?? null,
+      ...normalized,
     };
   });
 

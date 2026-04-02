@@ -8,7 +8,9 @@
     "fetch:all": "node fetch-game8.mjs && node fetch-gamewith.mjs",
     "enrich:ko": "node enrich-game8-ko.mjs",
     "import:db": "node import-enriched.mjs",
-    "build:sql": "node build-sql-seed.mjs"
+    "build:sql": "node build-sql-seed.mjs",
+    "verify:coverage": "node verify-coverage.mjs",
+    "build:location-map-template": "node build-location-map-template.mjs"
   },
   "type": "module",
   "keywords": [],

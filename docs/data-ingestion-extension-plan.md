@@ -69,3 +69,84 @@
 3. Supabase 스테이징에 적재
 4. 골드셋 GS-06~GS-10 재실행
 5. 본 시드 재생성 및 반영
+
+## 7) 실행 티켓 (파일 단위)
+
+아래 티켓 순서대로 진행하면 병목 없이 구현 가능하다.
+
+### T1. 조건 정규화 사전 정의
+
+- 대상: `scripts/tier2-fetch/enrich-game8-ko.mjs`
+- 작업:
+  - time/weather 원문을 정규화 키로 매핑하는 사전 추가
+  - 미매핑 값은 `unknown`으로 저장
+- 완료 기준:
+  - `time_condition_key`, `weather_condition_key` 필드가 enriched JSON에 존재
+
+### T2. 지역명 파싱/매핑 로직 추가
+
+- 대상: `scripts/tier2-fetch/fetch-game8.mjs`, `scripts/tier2-fetch/enrich-game8-ko.mjs`
+- 작업:
+  - 서식지별 지역명 원문 추출
+  - `location_name_ko`, `location_name_en` 채우기
+- 완료 기준:
+  - 표본 20건에서 지역명 누락률 10% 이하
+
+### T3. enriched JSON 스키마 확장
+
+- 대상: `scripts/tier2-fetch/out/*.json` 생성 경로
+- 작업:
+  - 신규 필드 반영:
+    - `location_name_ko`, `location_name_en`
+    - `time_condition_raw`, `weather_condition_raw`
+    - `time_condition_key`, `weather_condition_key`
+- 완료 기준:
+  - 샘플 파일 구조 검증 통과(필드 존재/타입 일치)
+
+### T4. DB import 로직 확장 (REST import)
+
+- 대상: `scripts/tier2-fetch/import-enriched.mjs`
+- 작업:
+  - `locations` upsert 구현
+  - `habitats.location_id` 연결
+  - `habitat_spawn_rules.time_condition`, `weather_condition` 저장
+- 완료 기준:
+  - import 후 location_id null 비율, 조건 null 비율이 유의미하게 감소
+
+### T5. SQL seed 생성 로직 확장
+
+- 대상: `scripts/tier2-fetch/build-sql-seed.mjs`
+- 작업:
+  - T4와 동일 규칙을 SQL 생성에도 반영
+  - `seed_game8.sql`이 REST import와 동일 결과를 내도록 동기화
+- 완료 기준:
+  - SQL Editor 적용 결과가 REST import 결과와 핵심 지표 일치
+
+### T6. alias 보강 (지역 질의 대응)
+
+- 대상: `scripts/tier2-fetch/import-enriched.mjs` (또는 별도 alias 빌더)
+- 작업:
+  - 지역 alias 자동 생성:
+    - `~마을`, 조사 제거형(`~에서`, `~의`) 대응 가능한 기본형
+- 완료 기준:
+  - `resolveLocationId`가 대표 자연어 표현 3종 이상 매칭
+
+### T7. 데이터 품질 점검 스크립트
+
+- 대상: `scripts/tier2-fetch/` 신규 스크립트(예: `verify-coverage.mjs`)
+- 작업:
+  - 아래 지표 출력:
+    - `habitats.location_id` 채움률
+    - spawn `time_condition` 채움률
+    - spawn `weather_condition` 채움률
+- 완료 기준:
+  - CI/수동 실행에서 지표 확인 가능
+
+### T8. QA 재검증 및 기록
+
+- 대상: `docs/qa-goldset.md`
+- 작업:
+  - `GS-06-R`~`GS-10-R` 재검증
+  - P/F 및 D/R/U/M/S 태깅 기록
+- 완료 기준:
+  - 4개 전부 P 또는 실패 원인/수정 계획 명확화

@@ -47,12 +47,24 @@ npm run fetch:gamewith
 | `name_ko` | [OP.GG 한국어 서식지 목록](https://op.gg/ko/pokemon-pokopia/habitats) | 이미지 URL `habitats/{번호}.png`와 `img alt`로 1~209 매칭 |
 | `description_ko` | 동일 OP.GG 목록 | 카드 본문 한글 문장(재료·분위기 설명). `conditions_en`(Game8 기계식 영문)과 **문장 형식은 다름** — 한국어로 조건을 보여 줄 때는 이 필드 또는 `conditions_en` 병기 |
 | `pokemon_ko` | [PokeAPI](https://pokeapi.co/) `pokemon-species` | 종별 공식 한글명 (`names`, language `ko`) |
+| `time_condition_key`, `weather_condition_key` | `conditions_en` 정규화 | `day/night/all/unknown`, `rain/sun/cloudy/windy/snow/all/unknown` 키 (초기 버전) |
+| `time_condition_raw`, `weather_condition_raw` | `conditions_en` 원문 | 후속 정규화 개선을 위한 원문 보존 |
+| `location_name_ko`, `location_name_en` | (현재 null) | T2에서 소스 확장 후 채울 예정 |
 | (없음) | 이벤트 등 | Game8에서 `habitat_no`가 비어 있거나 209 초과인 항목은 OP.GG 목록에 없을 수 있어 `name_ko` / `description_ko`가 `null`일 수 있다. 수동 보정 |
 
 ```bash
 npm run enrich:ko
 # 입력: out/game8-habitats.json → 출력: out/game8-habitats.enriched.json
 ```
+
+선택적으로 지역 매핑 파일을 넘길 수 있다:
+
+```bash
+node enrich-game8-ko.mjs out/game8-habitats.json out/game8-habitats.enriched.json location-map.json
+```
+
+- `location-map.json` 형식은 `scripts/tier2-fetch/location-map.json` 예시 참고
+- `habitat_no` 또는 `name_en` 기준으로 `location_name_ko/en`을 채운다
 
 게임8에만 있는 NPC/별칭 포켓몬 표기(예: `Pikachu (Peakychu)`)는 `enrich-game8-ko.mjs`의 `POKEMON_SLUG_OVERRIDES`로 일반 종 이름에 매핑한다.
 
@@ -66,8 +78,34 @@ npm run import:db
 ```
 
 - 기존 `pokemon`, `habitats`, `habitat_spawn_rules`, `habitat_requirements`, `aliases`, `source_records` 행은 **전부 삭제**한 뒤 다시 넣는다. `locations`는 유지.
+- `locations`는 유지하며, `enriched.json`에 있는 지역명이 기존에 없으면 자동으로 추가한다.
 - Game8에서 `habitat_no`가 없는 이벤트 서식지 4종은 DB에서 `habitat_no` **210~213**, `is_event = true`로 넣는다.
 - `habitats.description`에는 `description_ko`와 `[Game8] conditions_en`을 줄바꿈으로 합친다.
+- `time_condition_key`/`weather_condition_key`가 있으면 `habitat_spawn_rules`에 저장한다(`unknown`은 null 처리).
+
+적재 후 커버리지 점검:
+
+```bash
+npm run verify:coverage
+```
+
+예상 출력:
+
+- `habitats.location_id` 채움률
+- `spawn.time_condition` 채움률
+- `spawn.weather_condition` 채움률
+
+## 지역 매핑 템플릿 생성
+
+현재 `location-map.json` 작업을 돕기 위해 enriched JSON 기반 템플릿을 생성할 수 있다.
+
+```bash
+npm run build:location-map-template
+# → location-map.template.json
+```
+
+`location-map.template.json`에서 `location_name_ko/en`을 채운 뒤
+`location-map.json`에 반영해 `enrich:ko`를 다시 실행한다.
 
 ## 다음 단계 (수동·추가)
 

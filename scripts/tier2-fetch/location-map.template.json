@@ -1,0 +1,1468 @@
+{
+  "description": "habitat_no 또는 name_en 기준 지역 매핑 템플릿. location_name_ko/en을 채운 뒤 location-map.json으로 복사하세요.",
+  "records": [
+    {
+      "habitat_no": 1,
+      "name_en": "Tall grass",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 2,
+      "name_en": "Tree-shaded tall grass",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 3,
+      "name_en": "Boulder-shaded tall grass",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 4,
+      "name_en": "Hydrated tall grass",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 5,
+      "name_en": "Seaside tall grass",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 6,
+      "name_en": "Elevated tall grass",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 7,
+      "name_en": "Illuminated tall grass",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 8,
+      "name_en": "Pretty flower bed",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 9,
+      "name_en": "Tree-shaded flower bed",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 10,
+      "name_en": "Hydrated flower bed",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 11,
+      "name_en": "Field of flowers",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 12,
+      "name_en": "Elevated flower bed",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 13,
+      "name_en": "Grave with flowers",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 14,
+      "name_en": "Flower garden",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 15,
+      "name_en": "Fresh veggie field",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 16,
+      "name_en": "Riding warm updrafts",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 17,
+      "name_en": "Campsite",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 18,
+      "name_en": "Training waterfall",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 19,
+      "name_en": "Tantalizing dining set",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 20,
+      "name_en": "Picnic set",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 21,
+      "name_en": "Flowery table",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 22,
+      "name_en": "Bench with greenery",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 23,
+      "name_en": "Illuminated bench",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 24,
+      "name_en": "Exercise resting spot",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 25,
+      "name_en": "Urgent care",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 26,
+      "name_en": "Gym first aid",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 27,
+      "name_en": "Road sign",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 28,
+      "name_en": "Large luggage carrier",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 29,
+      "name_en": "Lumberjack's workplace",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 30,
+      "name_en": "Bed with a plush",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 31,
+      "name_en": "Gently lit bed",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 32,
+      "name_en": "Grave offering",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 33,
+      "name_en": "Creepy grave offering",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 34,
+      "name_en": "Chansey resting area",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 35,
+      "name_en": "Irresistible scent and glow",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 36,
+      "name_en": "Floating in the shade",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 37,
+      "name_en": "Smooth tall grass",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 38,
+      "name_en": "Factory storage",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 39,
+      "name_en": "Luxury chirp-chirp meal",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 40,
+      "name_en": "Berry-feast campsite",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 41,
+      "name_en": "Rain Dance site",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 42,
+      "name_en": "Sunny Day site",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 43,
+      "name_en": "Professor's treasure trove",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 44,
+      "name_en": "Cozy log handicrafts",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 45,
+      "name_en": "Very-berry space",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 46,
+      "name_en": "Garden terrace",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 47,
+      "name_en": "Tree-shaded snoozing Snorlax",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 48,
+      "name_en": "Good old-fashioned antiques",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 49,
+      "name_en": "Nothin' but Poke Balls",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 50,
+      "name_en": "Yellow tall grass",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 51,
+      "name_en": "Tree-shaded yellow tall grass",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 52,
+      "name_en": "Elevated yellow tall grass",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 53,
+      "name_en": "Hydrated yellow tall grass",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 54,
+      "name_en": "Marshy tall grass",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 55,
+      "name_en": "Overgrowth vending machine",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 56,
+      "name_en": "Breezy flower bed",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 57,
+      "name_en": "Tropical vibes",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 58,
+      "name_en": "Windy flower bed",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 59,
+      "name_en": "Shaded beach",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 60,
+      "name_en": "Tropical seaside",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 61,
+      "name_en": "Resting spot",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 62,
+      "name_en": "Perpetual mess",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 63,
+      "name_en": "Trash collection site",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 64,
+      "name_en": "Trash can central",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 65,
+      "name_en": "Trash disposal site",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 66,
+      "name_en": "Park bench",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 67,
+      "name_en": "Tantalizing restaurant",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 68,
+      "name_en": "Tableside delivery cart",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 69,
+      "name_en": "Chirp-chirp meal",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 70,
+      "name_en": "Cafe space",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 71,
+      "name_en": "Beach set",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 72,
+      "name_en": "Light-up stage",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 73,
+      "name_en": "Surprise in store",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 74,
+      "name_en": "Night festival venue",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 75,
+      "name_en": "Changing area",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 76,
+      "name_en": "Private makeup stand",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 77,
+      "name_en": "Knitting station",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 78,
+      "name_en": "Hot-spring shower",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 79,
+      "name_en": "Resort meal prep",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 80,
+      "name_en": "All packed up",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 81,
+      "name_en": "Full recovery",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 82,
+      "name_en": "Alarm clock sleep zone",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 83,
+      "name_en": "Vending machine break area",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 84,
+      "name_en": "Vending machine set",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 85,
+      "name_en": "Mini Game Corner",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 86,
+      "name_en": "Waterwheel spot",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 87,
+      "name_en": "Furnace spot",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 88,
+      "name_en": "Dock",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 89,
+      "name_en": "Spooky study",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 90,
+      "name_en": "Playing pirate",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 91,
+      "name_en": "Working the register",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 92,
+      "name_en": "Tiny atelier",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 93,
+      "name_en": "Gourmet's altar",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 94,
+      "name_en": "Pikachu space",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 95,
+      "name_en": "Cuteness overload",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 96,
+      "name_en": "Welcoming resort",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 97,
+      "name_en": "Plain life",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 98,
+      "name_en": "Red tall grass",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 99,
+      "name_en": "Tree-shaded red tall grass",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 100,
+      "name_en": "Pointy tree-shaded rocky tall grass",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 101,
+      "name_en": "Hydrated red tall grass",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 102,
+      "name_en": "Elevated red tall grass",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 103,
+      "name_en": "Grassy training field",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 104,
+      "name_en": "Graceful flower bed",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 105,
+      "name_en": "Tree-shaded graceful flower bed",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 106,
+      "name_en": "Hydrated graceful flower bed",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 107,
+      "name_en": "Flower garden stump stage",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 108,
+      "name_en": "Toil in the soil",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 109,
+      "name_en": "Uplifting duckweed",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 110,
+      "name_en": "Mossy rest spot",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 111,
+      "name_en": "Mossy boulder",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 112,
+      "name_en": "Mossy hot spring",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 113,
+      "name_en": "Open-air bath",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 114,
+      "name_en": "Harmonious hot spring",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 115,
+      "name_en": "Piping-hot lava",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 116,
+      "name_en": "Digging and burning",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 117,
+      "name_en": "Clink-clang iron construction",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 118,
+      "name_en": "Creepy white rocks",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 119,
+      "name_en": "Container snacking",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 120,
+      "name_en": "Dinner table surprise",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 121,
+      "name_en": "Best bread bakery",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 122,
+      "name_en": "Mini kitchen",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 123,
+      "name_en": "House party",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 124,
+      "name_en": "Lazy photo-album scrolling",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 125,
+      "name_en": "Chirping recital",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 126,
+      "name_en": "Recital stage",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 127,
+      "name_en": "Box to the rhythm",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 128,
+      "name_en": "Music and magazines",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 129,
+      "name_en": "Mini museum",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 130,
+      "name_en": "Refreshing locker room",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 131,
+      "name_en": "Bronze landmark",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 132,
+      "name_en": "Railroad crossing",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 133,
+      "name_en": "Chef's kitchen",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 134,
+      "name_en": "Absolute luxury",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 135,
+      "name_en": "Heavy iron",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 136,
+      "name_en": "Modern living",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 137,
+      "name_en": "Pink tall grass",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 138,
+      "name_en": "Tree-shaded pink tall grass",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 139,
+      "name_en": "Hydrated pink tall grass",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 140,
+      "name_en": "Elevated pink tall grass",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 141,
+      "name_en": "Concrete pipe secret base",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 142,
+      "name_en": "Fluffy flower bed",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 143,
+      "name_en": "Tree-shaded fluffy flower bed",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 144,
+      "name_en": "Hydrated fluffy flower bed",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 145,
+      "name_en": "Waterside dinghy",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 146,
+      "name_en": "Illuminated waterfall",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 147,
+      "name_en": "Birdsong garden",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 148,
+      "name_en": "Simple bathroom",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 149,
+      "name_en": "Cycling rest stop",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 150,
+      "name_en": "Fireplace nap spot",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 151,
+      "name_en": "Surging psychic power",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 152,
+      "name_en": "Fortune-teller's table",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 153,
+      "name_en": "Trash site TV",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 154,
+      "name_en": "Oversized dumping ground",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 155,
+      "name_en": "Interrogation desk",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 156,
+      "name_en": "Sewer-hole inspection",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 157,
+      "name_en": "Spotless washing station",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 158,
+      "name_en": "Home theater",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 159,
+      "name_en": "Study area",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 160,
+      "name_en": "Rhythmic living room",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 161,
+      "name_en": "Squeaky clean",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 162,
+      "name_en": "Moisturizing makeup stand",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 163,
+      "name_en": "Mini library",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 164,
+      "name_en": "Game Corner battle zone",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 165,
+      "name_en": "Playland",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 166,
+      "name_en": "Work desk",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 167,
+      "name_en": "Office storeroom",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 168,
+      "name_en": "Experiment space",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 169,
+      "name_en": "Professor's apprentice program",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 170,
+      "name_en": "Researcher's desk",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 171,
+      "name_en": "Public reading material",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 172,
+      "name_en": "Heart-pounding surprise box",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 173,
+      "name_en": "Prank button",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 174,
+      "name_en": "Picturesque photo cutout board",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 175,
+      "name_en": "Tire park",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 176,
+      "name_en": "Nature's market",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 177,
+      "name_en": "Construction-site generator",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 178,
+      "name_en": "Dojo training",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 179,
+      "name_en": "Evil organization HQ",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 180,
+      "name_en": "Nine flames",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 181,
+      "name_en": "Plush central",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 182,
+      "name_en": "Gamer's paradise",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 183,
+      "name_en": "Top pop",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 184,
+      "name_en": "Fishing pond",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 185,
+      "name_en": "Ocean fishing spot",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 186,
+      "name_en": "Marsh fishing spot",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 187,
+      "name_en": "Hot-spring fishing spot",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 188,
+      "name_en": "Magma fishing spot",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 189,
+      "name_en": "Amped rock stage",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 190,
+      "name_en": "Low-key rock stage",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 191,
+      "name_en": "Malicious knight's shrine",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 192,
+      "name_en": "Auspicious knight's shrine",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 193,
+      "name_en": "Wing Fossil display",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 194,
+      "name_en": "Skull Fossil display",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 195,
+      "name_en": "Headbutt Fossil display",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 196,
+      "name_en": "Armor Fossil display",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 197,
+      "name_en": "Shield Fossil display",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 198,
+      "name_en": "Jaw Fossil display",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 199,
+      "name_en": "Despot Fossil display",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 200,
+      "name_en": "Sail Fossil display",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 201,
+      "name_en": "Tundra Fossil display",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 202,
+      "name_en": "Boundless blue beverage",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 203,
+      "name_en": "Electrifying potatoes",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 204,
+      "name_en": "Burning-hot spice",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 205,
+      "name_en": "Elegant daytime treats",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 206,
+      "name_en": "Dark-chocolate cookies",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 207,
+      "name_en": "Leafy greens sandwich",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 208,
+      "name_en": "Chilly shaved ice",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    },
+    {
+      "habitat_no": 209,
+      "name_en": "Lovely ribbon cake",
+      "location_name_ko": null,
+      "location_name_en": null,
+      "note": "TODO: fill location names"
+    }
+  ]
+}

@@ -8,7 +8,7 @@
  *   node import-enriched.mjs [경로/game8-habitats.enriched.json]
  *
  * 기존 pokemon / habitats / habitat_spawn_rules / habitat_requirements / aliases / source_records 는
- * 비우고 다시 채운다. public.locations 는 건드리지 않는다.
+ * 비우고 다시 채운다. public.locations 는 유지하되 필요한 지역은 추가 삽입한다.
  */
 
 import dotenv from "dotenv";
@@ -117,10 +117,58 @@ async function main() {
     (insertedPokemon ?? []).map((r) => [r.name_en, r.id]),
   );
 
+  // locations: 기존 유지 + 누락 지역만 추가 삽입
+  const locationRows = [];
+  const locationSeen = new Set();
+  for (const h of normalized) {
+    const ko = h.location_name_ko?.trim() || null;
+    const en = h.location_name_en?.trim() || null;
+    const key = (ko || en || "").toLowerCase();
+    if (!key || locationSeen.has(key)) continue;
+    locationSeen.add(key);
+    locationRows.push({
+      name_ko: ko || en,
+      name_en: en,
+      biome: null,
+      unlock_rule: null,
+    });
+  }
+
+  const { data: existingLocations, error: le } = await sb
+    .from("locations")
+    .select("id, name_ko, name_en");
+  if (le) throw le;
+  const locationIdByKey = new Map();
+  for (const r of existingLocations ?? []) {
+    locationIdByKey.set(String(r.name_ko).toLowerCase(), r.id);
+    if (r.name_en) locationIdByKey.set(String(r.name_en).toLowerCase(), r.id);
+  }
+
+  const toInsertLocations = locationRows.filter((r) => {
+    const key = String(r.name_ko).toLowerCase();
+    return !locationIdByKey.has(key);
+  });
+  if (toInsertLocations.length > 0) {
+    console.log(`locations 삽입 ${toInsertLocations.length}행…`);
+    const { data: insertedLoc, error: lie } = await sb
+      .from("locations")
+      .insert(toInsertLocations)
+      .select("id, name_ko, name_en");
+    if (lie) throw lie;
+    for (const r of insertedLoc ?? []) {
+      locationIdByKey.set(String(r.name_ko).toLowerCase(), r.id);
+      if (r.name_en) locationIdByKey.set(String(r.name_en).toLowerCase(), r.id);
+    }
+  }
+
   const habitatRows = normalized.map((h) => ({
     habitat_no: h._habitat_no,
     name_ko: h.name_ko?.trim() || h.name_en,
     name_en: h.name_en,
+    location_id:
+      locationIdByKey.get((h.location_name_ko || "").toLowerCase()) ||
+      locationIdByKey.get((h.location_name_en || "").toLowerCase()) ||
+      null,
     is_event: h._is_event,
     description: buildDescription(h),
   }));
@@ -149,8 +197,15 @@ async function main() {
       spawnRows.push({
         habitat_id: hid,
         pokemon_id: pid,
-        time_condition: null,
-        weather_condition: null,
+        time_condition:
+          h.time_condition_key && h.time_condition_key !== "unknown"
+            ? h.time_condition_key
+            : null,
+        weather_condition:
+          h.weather_condition_key && h.weather_condition_key !== "unknown"
+            ? h.weather_condition_key
+            : null,
+        biome_condition: null,
       });
     }
   }
